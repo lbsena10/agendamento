@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema</title>
+  </head>
+  <body>
+    <div class="calendar"></div>
+  </body>
+  <script src="./fullcalendar/index.global.js"></script>
+  <script>
+    const element = document.getElementById("calendar")
+    const calendar = new FullCalendar.Calendar(element, {
+      initialView: "dayGridMonth",
+      locale: "pt-br",
+    })
+    calendar.render()
+  </script>
+</html>

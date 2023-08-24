@@ -17,7 +17,7 @@ mongoose.connect("mongodb://127.0.0.1/agendamento", {
 })
 
 app.get("/", (req, res) => {
-  res.send("Hello")
+  res.render("index")
 })
 
 app.get("/cadastro", (req, res) => {
