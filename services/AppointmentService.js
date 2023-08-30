@@ -1,5 +1,6 @@
 const appointment = require("../models/Appointment")
 const mongoose = require("mongoose")
+const AppointmentFactory = require("../factories/AppointmentFactory")
 
 const Appo = mongoose.model("Appointment", appointment)
 
@@ -20,6 +21,24 @@ class AppointmentService {
     } catch (err) {
       console.log(err)
       return false
+    }
+  }
+
+  async GetAll(showFinished) {
+    if (showFinished) {
+      return await Appo.find()
+    } else {
+      const appos = await Appo.find({ finished: false })
+
+      const appointments = []
+
+      appos.forEach((appointment) => {
+        if (appointment.date != undefined) {
+          appointments.push(AppointmentFactory.Build(appointment))
+        }
+      })
+
+      return appointments
     }
   }
 }

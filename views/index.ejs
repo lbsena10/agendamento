@@ -6,14 +6,15 @@
     <title>Sistema</title>
   </head>
   <body>
-    <div class="calendar"></div>
+    <div id="calendar"></div>
   </body>
-  <script src="./fullcalendar/index.global.js"></script>
+  <script src="/fullcalendar/index.global.js"></script>
   <script>
     const element = document.getElementById("calendar")
     const calendar = new FullCalendar.Calendar(element, {
       initialView: "dayGridMonth",
       locale: "pt-br",
+      events: "getcalendar",
     })
     calendar.render()
   </script>
