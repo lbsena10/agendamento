@@ -64,4 +64,15 @@ app.get("/list", async (req, res) => {
   res.render("list", { appos })
 })
 
+app.get("/searchresult", async (req, res) => {
+  const appos = await appointmentService.Search(req.query.search)
+  res.render("list", { appos })
+})
+
+const pollTime = 1000 * 60 * 5
+
+setInterval(async () => {
+  await appointmentService.SendNotification()
+}, pollTime)
+
 app.listen(8080, () => {})
